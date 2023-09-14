@@ -1,15 +1,11 @@
 version: 0.1
 
-environment_variables:
-  plaintext:
-    HUGO_VERSION: "0.80.0"
-    
 phases:
   install:
     commands:                                                                 
       - cd /tmp
-      - wget https://github.com/gohugoio/hugo/releases/download/v0{HUGO_VERSION}/hugo_extended_{HUGO_VERSION}_Linux-64bit.tar.gz
-      - tar -xzf hugo_extended_{HUGO_VERSION}_Linux-64bit.tar.gz
+      - wget https://github.com/gohugoio/hugo/releases/download/v0.118.2/hugo_extended_0.118.2_Linux-64bit.tar.gz
+      - tar -xzf hugo_extended_0.118.2_Linux-64bit.tar.gz
       - mv hugo /usr/bin/hugo
       - cd 
       - rm -rf /tmp/*
@@ -19,5 +15,5 @@ phases:
       - hugo 
   post_build:
     commands:
-      - aws s3 sync --delete public s3://my-hugo-cd-bucket
+      - aws s3 sync --delete public s3://my-hugo-cd-bucket/?region=us-east-1
       - echo Build completed on `date`
