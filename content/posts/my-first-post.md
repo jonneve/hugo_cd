@@ -5,3 +5,5 @@ draft = false
 +++
 
 # testing AWS-Hugo Static site with s3
+
+## Showing CD pipeline in action with repo commits
