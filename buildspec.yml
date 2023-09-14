@@ -12,7 +12,8 @@ phases:
   build:
     commands:
       - rm -rf public
-      - hugo 
+      - hugo
+      - hugo deploy
       - aws s3 sync --delete public s3://my-hugo-cd-bucket/?region=us-east-1
   post_build:
     commands:      
